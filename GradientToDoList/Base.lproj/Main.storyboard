@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="qkG-fr-TdH" id="eYJ-at-xI5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Gradient To Do List" id="ZR8-zM-w14"/>
+                    <navigationItem key="navigationItem" title="Gradient To Do List" id="ZR8-zM-w14">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hLG-xi-YLm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="qkG-fr-TdH" id="3Nb-3j-DZH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Etj-ki-oQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
