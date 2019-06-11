@@ -12,9 +12,18 @@ class ToDoListViewController: UITableViewController {
     
     
     var itemArray = ["Finish Tutorial?", "Prep for Forrest", "Yoga"]
+    
+    //Now we're getting into our background storage of data so it doesn't disappear when the app is terminated
+    let defaults = UserDefaults.standard
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //we're connecting the "saved" data of what items they entered and making sure it loads on viewDidLoad
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
+            itemArray = items
+        }
         
     }//ends view did load
     
@@ -74,6 +83,10 @@ class ToDoListViewController: UITableViewController {
             
             //what will happen once the user clicks the Add Item button on our UIAlert
             self.itemArray.append(textField.text!)
+            
+            //we're going to save our item array to our user defaults (the SELFs are because we are in an closure)
+             ///this is not enough, but this does save the data to the plist (note the key)
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             
             //even though the above code appends the item to the list, it still doesn't appear (visually for user), inorder to do
             //this, we need to:
